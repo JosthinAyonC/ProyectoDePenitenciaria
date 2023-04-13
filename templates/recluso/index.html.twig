@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recluso index{% endblock %}
+
+{% block body %}
+{{parent() }}
+    <h1>Recluso index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdRecluso</th>
+                <th>Identificacion</th>
+                <th>Delitos</th>
+                <th>Sentencia</th>
+                <th>FichaIngreso</th>
+                <th>Estado</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recluso in reclusos %}
+            <tr>
+                <td>{{ recluso.idRecluso }}</td>
+                <td>{{ recluso.identificacion }}</td>
+                <td>{{ recluso.delitos ? recluso.delitos|json_encode : '' }}</td>
+                <td>{{ recluso.sentencia }}</td>
+                <td>{{ recluso.fichaIngreso ? 'Yes' : 'No' }}</td>
+                <td>{{ recluso.estado }}</td>
+                <td>
+                    <a href="{{ path('app_recluso_show', {'idRecluso': recluso.idRecluso}) }}">show</a>
+                    <a href="{{ path('app_recluso_edit', {'idRecluso': recluso.idRecluso}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_recluso_new') }}">Create new</a>
+{% endblock %}

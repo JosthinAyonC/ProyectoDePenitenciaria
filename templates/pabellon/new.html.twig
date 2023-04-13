@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Pabellon{% endblock %}
+
+{% block body %}
+{{parent() }}
+    <h1>Create new Pabellon</h1>
+
+    {{ include('pabellon/_form.html.twig') }}
+
+    <a href="{{ path('app_pabellon_index') }}">back to list</a>
+{% endblock %}

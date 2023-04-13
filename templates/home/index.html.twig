@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+{{parent()}}
+<h1>Bienvenido al sistema de penitenciaria</h1>
+
+<div class="container">
+    <div class="cuadrado">
+
+        <a href="{{path('app_pabellon_index')}}">
+            <div class="cuadradoContenido" ><h1>Pabellones</h1></div>
+        </a>
+        <a href="{{path('app_usuario_index')}}">
+            <div class="cuadradoContenido"><h1>Usuarios</h1></div>
+        </a>
+        <a href="{{path('app_celda_index')}}">
+            <div class="cuadradoContenido"><h1>celda</h1></div>
+        </a>
+        <a href="{{path('app_recluso_index')}}">
+            <div class="cuadradoContenido" ><h1>Reclusos</h1></div>
+        </a>
+
+    </div>    
+</div> 
+
+{% endblock %}

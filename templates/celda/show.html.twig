@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Celda{% endblock %}
+
+{% block body %}
+{{parent() }}
+    <h1>Celda</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdCelda</th>
+                <td>{{ celda.idCelda }}</td>
+            </tr>
+            <tr>
+                <th>Capacidad</th>
+                <td>{{ celda.capacidad }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ celda.estado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_celda_index') }}">back to list</a>
+
+    <a href="{{ path('app_celda_edit', {'idCelda': celda.idCelda}) }}">edit</a>
+
+    {{ include('celda/_delete_form.html.twig') }}
+{% endblock %}

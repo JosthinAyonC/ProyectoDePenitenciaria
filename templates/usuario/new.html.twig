@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Usuario{% endblock %}
+
+{% block body %}
+{{parent()}}
+    <h1>Usted va a crear un nuevo personal de vigilancia</h1>
+
+    {{ include('usuario/_form.html.twig') }}
+
+    <a href="{{ path('app_usuario_index') }}">back to list</a>
+{% endblock %}

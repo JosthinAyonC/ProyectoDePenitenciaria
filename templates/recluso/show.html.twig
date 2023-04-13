@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recluso{% endblock %}
+
+{% block body %}
+{{parent() }}
+    <h1>Recluso</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdRecluso</th>
+                <td>{{ recluso.idRecluso }}</td>
+            </tr>
+            <tr>
+                <th>Identificacion</th>
+                <td>{{ recluso.identificacion }}</td>
+            </tr>
+            <tr>
+                <th>Delitos</th>
+                <td>{{ recluso.delitos ? recluso.delitos|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Sentencia</th>
+                <td>{{ recluso.sentencia }}</td>
+            </tr>
+            <tr>
+                <th>FichaIngreso</th>
+                <td>{{ recluso.fichaIngreso ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ recluso.estado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_recluso_index') }}">back to list</a>
+
+    <a href="{{ path('app_recluso_edit', {'idRecluso': recluso.idRecluso}) }}">edit</a>
+
+    {{ include('recluso/_delete_form.html.twig') }}
+{% endblock %}

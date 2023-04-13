@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Recluso{% endblock %}
+
+{% block body %}
+{{parent() }}
+    <h1>Edit Recluso</h1>
+
+    {{ include('recluso/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_recluso_index') }}">back to list</a>
+
+    {{ include('recluso/_delete_form.html.twig') }}
+{% endblock %}

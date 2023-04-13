@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pabellon index{% endblock %}
+
+{% block body %}
+{{parent() }}
+    <h1>Pabellon index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdPabellon</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pabellon in pabellons %}
+            <tr>
+                <td>{{ pabellon.idPabellon }}</td>
+                <td>{{ pabellon.nombre }}</td>
+                <td>{{ pabellon.estado }}</td>
+                <td>
+                    <a href="{{ path('app_pabellon_show', {'idPabellon': pabellon.idPabellon}) }}">show</a>
+                    <a href="{{ path('app_pabellon_edit', {'idPabellon': pabellon.idPabellon}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_pabellon_new') }}">Create new</a>
+{% endblock %}

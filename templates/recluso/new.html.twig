@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Recluso{% endblock %}
+
+{% block body %}
+{{parent() }}
+    <h1>Create new Recluso</h1>
+
+    {{ include('recluso/_form.html.twig') }}
+
+    <a href="{{ path('app_recluso_index') }}">back to list</a>
+{% endblock %}

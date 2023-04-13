@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Celda{% endblock %}
+
+{% block body %}
+{{parent() }}
+    <h1>Create new Celda</h1>
+
+    {{ include('celda/_form.html.twig') }}
+
+    <a href="{{ path('app_celda_index') }}">back to list</a>
+{% endblock %}
